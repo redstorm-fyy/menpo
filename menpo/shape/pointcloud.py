@@ -1,5 +1,5 @@
 import warnings
-
+import math
 import numpy as np
 import numbers
 import collections
@@ -1180,7 +1180,8 @@ class PointCloud(Shape):
         norm : `float`
             The norm of this :map:`PointCloud`
         """
-        return np.linalg.norm(self.points - self.centre(), **kwargs)
+        dist = np.linalg.norm(self.points - self.centre(), **kwargs)
+        return dist/math.sqrt(self.points.size)
 
     def from_mask(self, mask):
         """

@@ -151,7 +151,7 @@ def denormalize_pixels_range(pixels, out_dtype):
             p_min = pixels.min()
             p_max = pixels.max()
             if p_min < 0.0 or p_max > 1.0:
-                raise ValueError('Unexpected input range [{}, {}] - pixels '
+                warn('Unexpected input range [{}, {}] - pixels '
                                  'must be in the range [0, 1]'.format(p_min,
                                                                       p_max))
     elif in_dtype != np.bool:
